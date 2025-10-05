@@ -49,10 +49,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         activitiesList.appendChild(activityCard);
 
-        // Add option to select dropdown
+        // Add option to select dropdown, disable if full
         const option = document.createElement("option");
         option.value = name;
         option.textContent = name;
+        if (spotsLeft <= 0) {
+          option.disabled = true;
+          option.textContent += " (Full)";
+        }
         activitySelect.appendChild(option);
       });
     } catch (error) {
